@@ -1,0 +1,78 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Add Task</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<style type="text/css">
+		a{
+			display: block;
+			padding: 20px;
+			color: black;
+			text-decoration: none;
+			width: 200px;
+  			position: relative;
+  			top: 0;
+  			bottom: 0;
+  			border-right: 2px solid black;
+  			text-align: center;
+		}
+		a:hover{
+			height: 100%;
+			background-color: #ddd;
+  			color: black;
+  			text-decoration: none;
+		}
+		.nav{
+			width: 100%;
+			background-color: #4A789C;
+			top: 0;
+			left: 0;	
+			font-size: 1.3em;
+			color: whitesmoke;
+			display: block;
+		}
+	</style>
+</head>
+<body>
+	<section class="card">		
+		<div class="nav">
+			<a href="{% url 'AddTaskPage' %}" style="float: left;">Add-Task</a>
+			<a href="{% url 'DisplayTaskPage' %}" style="float: left;">Display Schedule</a>
+			<a href="{% url 'Notify' %}" style="float: left;">Notify-Me!</a>
+			<a href="{% url 'Logout' %}" style="float: left;">Logout</a>
+		</div>
+		<div class="card-body" style="margin-top: 10px;">
+			<h2 style="padding: 10px">Enter the details below:</h2><br>
+			{% if message%}
+				<br><p style="color: blue;">{{message}}</p>
+			{% endif %}
+			<form style="padding: 10px" action="{% url 'SendNotification' %}" method="POST">
+				{% csrf_token %}
+				<div class="form-group">
+			    	<label >Enter Email on which you want notification:</label>
+			    	<input type="email" class="form-control" style="width: 50%" name="email" placeholder="Eg. abc@gmail.com">
+			    </div>			    
+			    <div class="form-group">
+			    	<label >Enter event name you want to be notified for:</label>
+			    	<input type="text" class="form-control" style="width: 50%" name="ename" placeholder="Eg. Attend Seminar">
+			    </div>	
+			    <div class="form-group">
+			    	<label >Enter Date to get notification:</label>
+			    	<input type="date" class="form-control" style="width: 50%" name="date">
+			    </div>
+			    <div class="form-group">
+			    	<label >Enter Time :</label>
+			    	<input type="time" class="form-control" style="width: 50%" name="time">
+			    </div><br>
+			    <div class="form-group">
+			    	<div class="d-grid gap-2 col-6 ml-5" >
+					  	<button class="btn btn-info" type="submit" style="width: 70%">Submit</button>				  
+					</div>
+			    </div>
+			</form>
+		</div>		
+	</section>
+</body>
+</html>

@@ -1,0 +1,99 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Add Task</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<style type="text/css">
+		a{
+			display: block;
+			padding: 20px;
+			color: black;
+			text-decoration: none;
+			width: 200px;
+  			position: relative;
+  			top: 0;
+  			bottom: 0;
+  			border-right: 2px solid black;
+  			text-align: center;
+		}
+		a:hover{
+			height: 100%;
+			background-color: #ddd;
+  			color: black;
+  			text-decoration: none;
+		}
+		.nav{
+			width: 100%;
+			background-color: #4A789C;
+			top: 0;
+			left: 0;	
+			font-size: 1.3em;
+			color: whitesmoke;
+			display: block;
+		}
+	</style>
+</head>
+<body>
+	<section class="card">		
+		<div class="nav">
+			<a href="{% url 'AddTaskPage' %}" style="float: left;">Add-Task</a>
+			<a href="{% url 'DisplayTaskPage' %}" style="float: left;">Display Schedule</a>
+			<a href="{% url 'Notify' %}" style="float: left;">Notify-Me!</a>
+			<a href="{% url 'Logout' %}" style="float: left;">Logout</a>
+		</div>
+		<div class="card-body" style="margin-top: 10px;">
+			<h2 style="padding: 10px">Enter the details below:</h2><br>
+			<p style="color: blue;">{{message}}</p>
+			<form style="padding: 10px" action="{% url 'AddTask' %}" method="POST">
+				{% csrf_token %}
+				<div class="form-group">
+			    	<label >Enter Task Name:</label>
+			    	<input type="text" class="form-control" style="width: 50%" name="taskname">
+			    </div>
+			    <div class="form-group">
+			    	<label >Enter Task Description:</label>
+			    	<textarea type="text" class="form-control" style="width: 50%" name="taskdescription"></textarea> 
+			    </div>
+			    <div class="form-group">
+			    	<label >Task Priority:</label><br>
+			    	<div class="form-check form-check-inline">
+					  	<input class="form-check-input" type="radio" value="1" name="radiocheck" id="radio1" >
+					  	<label class="form-check-label" style="color: #E12B06;"><b> 1 </b></label>
+					</div> 
+					<div class="form-check form-check-inline">
+					  	<input class="form-check-input" type="radio" value="2" name="radiocheck" id="radio2">
+					  	<label class="form-check-label" style="color: #669966;"><b> 2 </b></label>	  	
+					</div>
+					<div class="form-check form-check-inline">	  	
+					  	<input class="form-check-input" type="radio" value="3" name="radiocheck" id="radio3">
+					  	<label class="form-check-label" style="color: #990033"> <b> 3 </b> </label>
+					</div>
+					<div class="form-check form-check-inline">	  	
+					  	<input class="form-check-input" type="radio" value="4" name="radiocheck" id="radio4">
+					  	<label class="form-check-label" style="color: #FFD800;"> <b> 4 </b> </label>
+					</div>
+					<div class="form-check form-check-inline">	  	
+					  	<input class="form-check-input" type="radio" value="5" name="radiocheck" id="radio5">
+					  	<label class="form-check-label" style="color: #CD5C5C"> <b> 5 </b></label>
+					</div>
+			    </div>
+			    <div class="form-group">
+			    	<label >Enter Start Date:</label>
+			    	<input type="date" class="form-control" style="width: 50%" name="startdate">
+			    </div>
+			    <div class="form-group">
+			    	<label >Enter Deadline Date:</label>
+			    	<input type="date" class="form-control" style="width: 50%" name="deadline">
+			    </div><br>
+			    <div class="form-group">
+			    	<div class="d-grid gap-2 col-6 ml-5" >
+					  	<button class="btn btn-info" type="submit" style="width: 70%">Submit</button>				  
+					</div>
+			    </div>
+			</form>
+		</div>		
+	</section>
+</body>
+</html>

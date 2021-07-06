@@ -1,0 +1,27 @@
+.bg{
+  background: url('bg.jpg') no-repeat;
+  width:100%;
+  height: 100vh;
+  background-size: cover;
+}
+.form-group-contol{
+  background: #fff;
+  position: absolute;
+  top:16vh;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px 0px #000;
+  width: 100%
+}
+.form-group-contol h1{
+  font-size: 40px;
+  text-align: center;
+  margin: 20px 0;
+}
+.mynav{
+  padding: 10px;
+  box-shadow: 5px 5px 5px 5px ;
+  background: #3535ff;
+}
+
+

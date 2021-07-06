@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Main Page</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<style type="text/css">
+		a{
+			display: block;
+			padding: 20px;
+			color: black;
+			text-decoration: none;
+			width: 200px;
+  			position: relative;
+  			top: 0;
+  			bottom: 0;
+  			border-right: 2px solid black;
+  			text-align: center;
+		}
+		a:hover{
+			height: 100%;
+			background-color: #ddd;
+  			color: black;
+  			text-decoration: none;
+		}
+		.nav{
+			width: 100%;
+			background-color: #4A789C;
+			position: fixed;
+			top: 0;
+			left: 0;	
+			font-size: 1.3em;
+			color: whitesmoke;
+			display: block;
+		}
+		.heading{
+			padding: 50px;
+			margin-top: 150px;
+			text-align: center;
+			font-size: 3em;
+			background-image: linear-gradient(to bottom, #4A789C,#E3DAC9);
+		    -webkit-background-clip: text;
+		    -moz-background-clip: text;
+		    background-clip: text;
+		    color: transparent;
+		}
+		h1{
+			font-size: 3em;
+		}
+
+	</style>
+</head>
+<body >
+	<section class="card" >		
+		<div class="nav">
+			<a href="{% url 'LoginPage' %}" style="float: left;">Login</a>
+		</div>	
+		<div class="heading">
+			<h1>TASK SCHEDULER</h1>
+		</div>	
+	</section>
+</body>
+</html>

@@ -1,0 +1,56 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Registration | Task Schedular</title>
+	<!-- Meta tags-->
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <!--Login css-->
+    <link rel="stylesheet" type="text/css" href="{% static 'authentication/css/style.css' %}">
+</head>
+<body>
+	<section class="container-fluid bg">
+		<section class="row justify-content-center">
+			<section class="col-12 col-sm-6 col-md-3">
+				
+				<form class="form-group-contol r1" method="POST" action="{% url 'Registration' %}">	
+					{% csrf_token %}
+  					<h1>Registration</h1>
+					  {% if message %}
+					  <br><p class="text-danger text-center">{{message}}</p><br>
+                      {% endif %}
+  					<div class="form-group">
+	    				<label >Enter First Name</label>
+	    				<input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter first name" name="fname">	
+  					</div>
+					  <div class="form-group">
+	    				<label >Enter Last Name</label>
+	    				<input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter last name" name="lname">	
+  					</div>
+					  <div class="form-group">
+	    				<label >Enter Email-Id</label>
+	    				<input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter a valid Email address" name="email">	
+  					</div>
+  					<div class="form-group">
+    					<label >Enter Password</label>
+    					<input type="password" class="form-control" id="exampleInputPassword1" placeholder="Enter Password" name="pwd">
+  					</div>
+  					<div class="form-group">
+    					<label >Re-enter Password</label>
+    					<input type="password" class="form-control" id="exampleInputPassword1" placeholder="Re-enter Password" name="r_pwd">
+  					</div>
+  					<div class="form-group">
+  						<label><a href="{% url 'LoginPage' %}">Click here for Login</a></label>				
+  					</div>
+  					
+  					<button type="submit" class="btn btn-primary btn-block">Submit
+  					</button>	
+				</form>
+			</section>
+		</section>
+	</section>
+</body>
+</html>
